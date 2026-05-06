@@ -1,0 +1,22 @@
+{
+  "name": "github-actions-ubuntu-deploy",
+  "version": "1.0.0",
+  "description": "Aplicación básica Node.js y Express con despliegue automatizado mediante GitHub Actions en servidor Ubuntu.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "github-actions",
+    "ubuntu",
+    "pm2",
+    "ci-cd"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
