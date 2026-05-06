@@ -10,16 +10,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            cd ${{ secrets.PROJECT_PATH }}
-            git pull origin main
-            npm install --production
-            pm2 restart github-actions-ubuntu-deploy || pm2 start app.js --name github-actions-ubuntu-deploy
-            pm2 save
+      - name: Deploy application on Ubuntu
+        run: |
+          cd "${{ secrets.PROJECT_PATH }}"
+          git pull origin main
+          npm install --production
+          pm2 restart github-actions-ubuntu-deploy || pm2 start app.js --name github-actions-ubuntu-deploy
+          pm2 save
